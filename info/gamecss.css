@@ -351,7 +351,8 @@ body[data-internal-page-name=GameDetail] .content {
 }
 
 .game-stat {
-    flex-direction: column-reverse !important
+    flex-direction: column-reverse !important;
+    gap: 0 !important
 }
 
 .game-stat:last-child {
@@ -997,4 +998,71 @@ body[data-internal-page-name=GameDetail] .content {
 
 .store-card-price .text-robux+span .rgu-converted {
     display: block
+}
+
+.collapsible-heading {
+    display: flex;
+    flex-direction: column
+}
+
+.collapsible-heading .collapsible-tab {
+    width: 100%;
+    border-radius: 10px 10px 0 0;
+    padding: 5px 0 5px 0;
+    margin-right: 5px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    cursor: pointer;
+    background-color: var(--primary)
+}
+
+.collapsible-heading .collapsible-tab .icon-container {
+    transition: transform .2s ease-in-out;
+    transform-box: fill-box;
+    width: 14px;
+    height: 14px;
+    margin-left: 19px
+}
+
+.collapsible-heading .collapsible-tab .icon-container:first-child {
+    display: none
+}
+
+.collapsible-heading .collapsible-tab:hover .icon-container {
+    margin-left: 0px
+}
+
+.collapsible-heading .collapsible-tab:hover .icon-container:first-child {
+    margin-left: 5px;
+    display: initial
+}
+
+.collapsible-heading .collapsible-tab .icon-drag {
+    color: rgba(255,255,255,.3)
+}
+
+.collapsible-heading .collapsible-tab .icon-rotate-down {
+    transform: rotate(90deg)
+}
+
+.collapsible-heading .collapsible-tab h2 {
+    font-size: 16px;
+    line-height: 19px
+}
+
+.collapsible-heading .collapsible-tab+div:not(.hidden) {
+    padding: 0 10px 0 10px;
+    border-radius: 0 0 10px 10px;
+    background-color: var(--primary);
+    margin-bottom: 5px
+}
+
+.collapsible-heading .collapsible-tab:has(+div.hidden) {
+    margin-bottom: 5px;
+    border-radius: 10px
+}
+
+.collapsible-heading .collapsible-tab:not(:has(+div.hidden)) {
+    border-bottom: 1px solid rgba(255,255,255,.1)
 }

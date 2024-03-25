@@ -128,6 +128,18 @@ body.light-theme {
     opacity: 1
 }
 
+.rbx-the-hunt-container .rbx-the-hunt-header {
+    display: none !important
+}
+
+.rbx-the-hunt-container .rbx-the-hunt-thumbnail {
+    width: 180px !important
+}
+
+.nav-tiny .rbx-the-hunt-container {
+    display: none !important
+}
+
 body[data-internal-page-name=Home] .left-col-list li:nth-child(1),body[data-internal-page-name=Profile] .left-col-list li:nth-child(2),body[data-internal-page-name=Messages] .left-col-list li:nth-child(3),body[data-internal-page-name=Friends] .left-col-list li:nth-child(4),body[data-internal-page-name=Avatar] .left-col-list li:nth-child(5),body[data-internal-page-name=Inventory] .left-col-list li:nth-child(6),body[data-internal-page-name=Trades] .left-col-list li:nth-child(7),body[data-internal-page-name=GroupDetails] .left-col-list li:nth-child(8) {
     background-color: var(--background);
     border-radius: 10px;
@@ -2164,6 +2176,23 @@ body[data-internal-page-name=Home] .content {
     height: 170px !important
 }
 
+.game-carousel.wide-game-tile-carousel {
+    height: 200px !important;
+    padding-top: 10px !important
+}
+
+.game-carousel.wide-game-tile-carousel .event-tile .featured-game-container {
+    width: 100% !important
+}
+
+.game-carousel.wide-game-tile-carousel .event-tile .featured-game-container .game-card-name,.game-carousel.wide-game-tile-carousel .event-tile .featured-game-container .game-card-info {
+    width: 100% !important
+}
+
+.game-carousel.wide-game-tile-carousel .event-tile .featured-game-container .quick-play {
+    display: none !important
+}
+
 .profile-slide-container .group-list {
     padding-top: 10px !important
 }
@@ -3702,7 +3731,13 @@ body[data-internal-page-name=Profile] .power-search-info .game-creator {
 
 .nav-tiny #navigation {
     min-width: 54px;
-    width: 54px
+    width: 54px !important
+}
+
+@media(max-width: 1688px) {
+    .nav-tiny.nav-pinned .container-main .content {
+        padding-left:54px
+    }
 }
 
 .nav-tiny .left-col-list li:not([class]) .text-nav {
@@ -3733,6 +3768,35 @@ body[data-internal-page-name=Profile] .power-search-info .game-creator {
 .nav-tiny .nav-logout {
     width: 44px;
     left: 5px
+}
+
+@media(max-width: 1688px) {
+    .nav-pinned .container-main .content {
+        padding-left:200px
+    }
+}
+
+.nav-pinned #navigation {
+    width: 200px;
+    display: block;
+    visibility: visible
+}
+
+.nav-pinned .rbx-header .rbx-navbar-header {
+    padding: 0 12px;
+    margin: 0
+}
+
+.nav-pinned .rbx-header .icon-logo {
+    display: block
+}
+
+.nav-pinned .rbx-header .icon-logo-r {
+    display: none
+}
+
+.nav-pinned .menu-button {
+    display: none
 }
 
 .alert-container>.alert-info {
@@ -4235,6 +4299,10 @@ body[data-internal-page-name=Profile] .power-search-info .game-creator {
     border-bottom-color: var(--background) !important
 }
 
+.view-servers-popover .no-server-list {
+    padding: 6px
+}
+
 .view-servers-popover .server-list {
     overflow: hidden;
     border-radius: 4px;
@@ -4394,15 +4462,6 @@ div:has(.rgu-join-modal) {
     height: 1px
 }
 
-.festive-logo .icon-logo {
-    background-image: url("https://www.rogold.live/assets/images/festive_winter.png") !important;
-    background-size: 118px
-}
-
-.festive-logo .icon-logo-r {
-    background-image: url("https://rogold.live/assets/images/festive_winter_icon.png") !important
-}
-
 .copy-short-link-btn {
     width: min-content;
     cursor: pointer;
@@ -4432,4 +4491,25 @@ div:has(.rgu-join-modal) {
 
 #react-user-account-base:has(.rogold-page:not(.hidden)) [ui-view],#react-user-account-base:has(.rogold-page:not(.hidden)) .tab-pane {
     display: none !important
+}
+
+.rgu-reorderable-list {
+    display: flex;
+    flex-direction: column
+}
+
+.rgu-reorderable-list-item {
+    cursor: pointer
+}
+
+.rgu-reorderable-list-dragged>div {
+    opacity: 1 !important
+}
+
+.rgu-reorderable-transition-transform {
+    transition: transform .2s ease-in-out
+}
+
+.rgu-reorderable-active {
+    opacity: 25%
 }

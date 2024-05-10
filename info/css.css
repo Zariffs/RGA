@@ -101,7 +101,7 @@ body.light-theme {
     min-width: 194px
 }
 
-.left-col-list li:not([class]) {
+.left-col-list:not(:has(.rgu-reorderable-list)) li:not([class]) {
     margin: 10px 0;
     width: 174px;
     min-width: 174px;
@@ -123,9 +123,203 @@ body.light-theme {
 }
 
 .left-col-list li:not([class]):hover {
-    background-color: var(--background);
+    background-color: var(--background) !important;
     border-radius: 10px;
-    opacity: 1
+    opacity: 1 !important
+}
+
+.left-col-list li button {
+    text-align: unset
+}
+
+.left-col-list.left-col-list:has(.rgu-reorderable-list) li:not([class]) {
+    margin: 0;
+    width: 174px;
+    min-width: 174px;
+    height: 34px;
+    min-height: 34px;
+    background-color: rgba(0,0,0,0);
+    opacity: .5;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap
+}
+
+.left-col-list div:has(>div.component-container) {
+    margin: 10px 0
+}
+
+.nav-tiny .left-col-list div:has(>div.component-container) {
+    margin-bottom: 25px
+}
+
+.left-col-list .rgu-reorderable-list {
+    padding: 0;
+    list-style: none;
+    margin: 0
+}
+
+.left-col-list div.not-visible .icon-toggle-visibility {
+    filter: brightness(0) saturate(100%) invert(77%) sepia(20%) saturate(1661%) hue-rotate(82deg) brightness(102%) contrast(87%) !important;
+    background: rgba(46,239,117,.2)
+}
+
+.left-col-list div.not-visible .icon-toggle-visibility:hover {
+    background: rgba(46,239,117,.4)
+}
+
+.left-col-list .icon-toggle-visibility {
+    display: flex;
+    position: absolute;
+    right: 20px;
+    height: 22.4px;
+    background: rgba(255,71,87,.2);
+    aspect-ratio: 1;
+    border-radius: 8px;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transform: translateY(-50%);
+    top: 50%;
+    filter: brightness(0) saturate(100%) invert(37%) sepia(57%) saturate(2252%) hue-rotate(329deg) brightness(104%) contrast(104%)
+}
+
+.left-col-list .icon-toggle-visibility .icon-visible,.left-col-list .icon-toggle-visibility .icon-hidden {
+    transform: scale(80%)
+}
+
+.left-col-list .icon-toggle-visibility .icon-visible svg,.left-col-list .icon-toggle-visibility .icon-hidden svg {
+    transform: translateX(-50%) translateY(-50%);
+    top: 50%;
+    left: 50%;
+    position: absolute
+}
+
+.left-col-list .icon-toggle-visibility:hover {
+    background: rgba(255,71,87,.4)
+}
+
+.left-col-list .icon-toggle-visibility .icon-visible {
+    background-image: url("https://rogold.live/svgs/dark/main.svg#icon-visible") !important;
+    background-size: auto auto;
+    background-position: 1px 2px;
+    width: 100%;
+    height: 100%
+}
+
+.left-col-list .icon-toggle-visibility .icon-hidden {
+    background-image: url("https://rogold.live/svgs/dark/main.svg#icon-hidden") !important;
+    background-size: auto auto;
+    background-position: 2px 5px;
+    width: 100%;
+    height: 100%
+}
+
+.left-col-list .editing .custom-text-content {
+    justify-content: flex-start !important
+}
+
+.left-col-list .editing .custom-text-content>span {
+    max-width: 55px;
+    overflow: hidden;
+    text-overflow: ellipsis
+}
+
+.left-col-list .editing .notification {
+    display: none
+}
+
+.left-col-list .icon-edit-modal.icon-edit {
+    display: flex;
+    position: absolute;
+    right: 55px;
+    height: 22.4px;
+    aspect-ratio: 1;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transform: translateY(-50%);
+    top: 50%
+}
+
+.left-col-list .icon-nav-menu {
+    opacity: .75;
+    position: absolute;
+    left: 5px;
+    transform: translateY(-50%);
+    top: 50%;
+    user-select: none;
+    -webkit-user-drag: none;
+    pointer-events: none;
+    width: 10px !important;
+    height: 7px !important;
+    background-size: 10px 7px !important
+}
+
+div:has(>.sidebar-layout.rgu-reorderable-list-dragged) {
+    z-index: 2000
+}
+
+.edit-layout-button {
+    bottom: 130px;
+    padding-bottom: 2.5px;
+    position: absolute;
+    width: 90%;
+    opacity: .5;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    user-select: none;
+    border-bottom: 1px solid rgba(255,255,255,.1) !important;
+    left: 50%;
+    transform: translateX(-50%)
+}
+
+.edit-layout-button a {
+    font-weight: 400;
+    font-size: 12px;
+    text-align: center;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 4px
+}
+
+.not-visible {
+    opacity: .5
+}
+
+.left-col-list .editing a:not(.icon-toggle-visibility),.left-col-list .editing button {
+    user-select: none;
+    -webkit-user-drag: none;
+    pointer-events: none
+}
+
+.left-col-list .editing li {
+    padding-left: 20px;
+    transition: padding 400ms cubic-bezier(0.175, 0.885, 0.32, 1.275)
+}
+
+.left-col-list {
+    height: calc(100% - 170px);
+    position: absolute;
+    overflow-y: auto
+}
+
+.nav-tiny .edit-layout-button {
+    width: 44px;
+    left: 5px;
+    transform: none
+}
+
+.nav-tiny .edit-layout-button span:not(.icon-edit) {
+    display: none
+}
+
+.dynamic-overflow-container.text-nav.text-center.nav-margin-0,.dynamic-overflow-container.text-nav.text-center.nav-margin-0 .font-header-2.dynamic-ellipsis-item.nav-margin-0 {
+    margin: 0 !important
 }
 
 .rbx-the-hunt-container .rbx-the-hunt-header {
@@ -140,7 +334,7 @@ body.light-theme {
     display: none !important
 }
 
-body[data-internal-page-name=Home] .left-col-list li:nth-child(1),body[data-internal-page-name=Profile] .left-col-list li:nth-child(2),body[data-internal-page-name=Messages] .left-col-list li:nth-child(3),body[data-internal-page-name=Friends] .left-col-list li:nth-child(4),body[data-internal-page-name=Avatar] .left-col-list li:nth-child(5),body[data-internal-page-name=Inventory] .left-col-list li:nth-child(6),body[data-internal-page-name=Trades] .left-col-list li:nth-child(7),body[data-internal-page-name=GroupDetails] .left-col-list li:nth-child(8) {
+body[data-internal-page-name=Home] .left-col-list li:has(>a#nav-home),body[data-internal-page-name=Profile] .left-col-list li:has(>a#nav-profile),body[data-internal-page-name=Messages] .left-col-list li:has(>a#nav-message),body[data-internal-page-name=Friends] .left-col-list li:has(>a#nav-friends),body[data-internal-page-name=Avatar] .left-col-list li:has(>a#nav-character),body[data-internal-page-name=Inventory] .left-col-list li:has(>a#nav-inventory),body[data-internal-page-name=Trades] .left-col-list li:has(>a#nav-trade),body[data-internal-page-name=GroupDetails] .left-col-list li:has(>a#nav-group),.left-col-list li.active {
     background-color: var(--background);
     border-radius: 10px;
     opacity: 1
@@ -267,7 +461,7 @@ body {
     top: -14px !important
 }
 
-.left-col-list li:nth-child(10),.left-col-list li:nth-child(11),.left-col-list li:nth-child(12),.left-col-list li:nth-child(13) {
+.left-col-list:not(:has(.rgu-reorderable-list)) li:has(>a#nav-blog),.left-col-list:not(:has(.rgu-reorderable-list)) li:has(>button#nav-shop),.left-col-list:not(:has(.rgu-reorderable-list)) li:has(>a#nav-giftcards),.left-col-list li:has(>a#upgrade-now-button) {
     display: none
 }
 
@@ -716,6 +910,17 @@ meter.bar-green::-webkit-meter-bar {
     background-image: url("data:image/svg+xml,%3Csvg width='18' height='16' viewBox='0 0 18 16' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M.933 7.254v1.492c0 .881.722 1.61 1.614 1.61 1.538 0 2.166 1.085 1.393 2.416a1.607 1.607 0 0 0 .595 2.195l1.47.839c.67.398 1.537.161 1.937-.508l.093-.162c.773-1.33 2.03-1.33 2.795 0l.094.162c.399.669 1.266.906 1.937.508l1.47-.84a1.605 1.605 0 0 0 .594-2.194c-.773-1.33-.144-2.416 1.393-2.416.892 0 1.615-.729 1.615-1.61V7.254c0-.89-.731-1.61-1.615-1.61-1.537 0-2.166-1.085-1.393-2.416a1.607 1.607 0 0 0-.595-2.195L12.86.194c-.67-.398-1.537-.161-1.936.509l-.094.16c-.773 1.331-2.03 1.331-2.795 0l-.093-.16c-.4-.67-1.266-.907-1.937-.509l-1.47.84a1.607 1.607 0 0 0-.595 2.194c.773 1.33.145 2.416-1.393 2.416-.892 0-1.614.729-1.614 1.61ZM12.19 8a2.758 2.758 0 0 1-2.762 2.755A2.758 2.758 0 0 1 6.668 8a2.758 2.758 0 0 1 2.76-2.755A2.758 2.758 0 0 1 12.19 8Z' fill='%23fff'/%3E%3C/svg%3E") !important
 }
 
+#nav-shop .icon-nav-shop {
+    background-image: url("https://rogold.live/svgs/dark/main.svg#icon-shop") !important;
+    background-position: 0 2px !important
+}
+
+#nav-giftcards .icon-nav-giftcards {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='18.571' viewBox='0 0 20 18.571' fill='none' class='i'%3E%3Cpath d='M1.25 16.633c0 .677.559 1.224 1.25 1.224h6.25v-6.123h-7.5zm10 1.224h6.25a1.236 1.236 0 0 0 1.25-1.224v-4.899h-7.5zm7.5-12.244h-1.644c.243-.464.394-.976.394-1.531 0-1.856-1.543-3.368-3.437-3.368-1.626 0-2.676.814-4.024 2.614C8.691 1.529 7.64.714 6.016.714c-1.895 0-3.437 1.512-3.437 3.367 0 .556.149 1.067.394 1.531H1.25A1.236 1.236 0 0 0 0 6.837v3.061a.62.62 0 0 0 .626.611h18.749a.62.62 0 0 0 .625-.61V6.837a1.236 1.236 0 0 0-1.25-1.224m-12.739 0c-.863 0-1.563-.686-1.563-1.531s.7-1.53 1.563-1.53c.777 0 1.351.126 3.363 3.061zm8.051 0h-3.363c2.009-2.929 2.567-3.061 3.364-3.061.863 0 1.563.686 1.563 1.53 0 .846-.7 1.531-1.563 1.531' fill='%23fff'/%3E%3C/svg%3E");
+    background-size: auto !important;
+    padding: 5px
+}
+
 .rbx-header .rbx-navbar-header {
     max-width: none !important;
     width: auto !important
@@ -801,10 +1006,6 @@ ul.hlist[ng-controller=friendsListController] {
 
 .modal-header {
     border-bottom: 1px solid rgba(255,255,255,.1) !important
-}
-
-.modal-buttons {
-    margin-bottom: 0px !important
 }
 
 #modal-avh {
@@ -2910,18 +3111,24 @@ body[abp-hide=true] .abp,body[abp-hide=true] .profile-ads-container {
 
 .modal-buttons {
     text-align: end;
-    margin: 0
+    margin: 0;
+    display: inline-flex;
+    gap: 5px;
+    margin-bottom: 0px !important
 }
 
 .modal-button {
     margin: 0 !important;
     font-weight: 600 !important;
-    background: #2176ff !important;
     box-shadow: 0px 2px 10px rgba(76,132,255,.15) !important;
     border-radius: 6px !important;
     padding: 6px 20px !important;
     font-size: 12px !important;
     line-height: 15px !important
+}
+
+.modal-button.btn-control-md {
+    background: #2176ff !important
 }
 
 .modal-body .btn-toggle-label {
@@ -3724,7 +3931,7 @@ body[data-internal-page-name=Profile] .power-search-info .game-creator {
     margin-left: -7px
 }
 
-.nav-tiny .left-col-list,.nav-tiny .rbx-scrollbar,.nav-tiny .simplebar-content,.nav-tiny .simplebar-content-wrapper,.nav-tiny .simplebar-mask,.nav-tiny .simplebar-offset,.nav-tiny .simplebar-wrapper {
+.nav-tiny .left-col-list,.nav-tiny #left-navigation-container .rbx-scrollbar,.nav-tiny .simplebar-content,.nav-tiny .simplebar-content-wrapper,.nav-tiny .simplebar-mask,.nav-tiny .simplebar-offset,.nav-tiny .simplebar-wrapper {
     min-width: 100% !important;
     width: 50px !important
 }
@@ -3745,7 +3952,7 @@ body[data-internal-page-name=Profile] .power-search-info .game-creator {
     display: flex;
     flex-direction: column;
     width: 50px;
-    margin-left: -8px;
+    margin-left: -8px !important;
     height: 40px;
     align-items: center
 }
@@ -4493,7 +4700,7 @@ div:has(.rgu-join-modal) {
     display: none !important
 }
 
-.rgu-reorderable-list {
+#game-page-tab-layout .rgu-reorderable-list {
     display: flex;
     flex-direction: column
 }
